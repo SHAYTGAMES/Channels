@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAYTGAMES</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://example.com/sunset.jpg') no-repeat center center fixed; /* Replace with sunset image URL */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Overlay for the second image */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://example.com/second_image.png') center center / 50% no-repeat; /* Replace with second image URL */
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        /* Header with "All SHAYTGAMES Channels" */
+        .header {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00f; /* Blue text as in the image */
+            z-index: 2;
+        }
+
+        /* Menu icon (three lines) */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #800080; /* Purple color */
+            text-shadow: 2px 2px 4px #000000; /* Black shadow */
+            z-index: 3;
+        }
+
+        /* Social buttons container */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* Social buttons styling */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* YouTube button (larger and centered) */
+        .youtube-btn {
+            width: 200px;
+            height: 200px;
+            font-size: 24px;
+            margin: 0 50px; /* Space on the sides for Twitter and Instagram */
+            --image-url: url('https://example.com/youtube_icon.png'); /* Default YouTube image */
+        }
+
+        /* Twitter and Instagram buttons (smaller, on the sides) */
+        .side-btn {
+            width: 120px;
+            height: 120px;
+            font-size: 18px;
+        }
+
+        .twitter-btn {
+            --image-url: url('https://example.com/twitter_icon.png'); /* Default Twitter image */
+        }
+
+        .instagram-btn {
+            --image-url: url('https://example.com/instagram_icon.png'); /* Default Instagram image */
+        }
+
+        /* Custom shadows for each button */
+        .youtube-btn {
+            box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.7); /* Red shadow for YouTube */
+        }
+
+        .twitter-btn {
+            box-shadow: 0 0 10px 5px rgba(0, 128, 0, 0.7); /* Green shadow for Twitter */
+        }
+
+        .instagram-btn {
+            box-shadow: 0 0 10px 5px rgba(128, 0, 128, 0.7); /* Purple shadow for Instagram */
+        }
+
+        /* Hover effect with sunset colors (preserved) */
+        .social-btn:hover {
+            box-shadow: 0 0 20px 5px #ff7e5f; /* Sunset glow */
+        }
+
+        /* Info section (black screen with text) */
+        .info-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 4;
+        }
+
+        .info-section.active {
+            display: flex;
+        }
+
+        .info-section h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .info-section p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        /* Close button for Info section */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            z-index: 5;
+        }
+
+        /* Credits */
+        .credits {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <!-- Header -->
+    <div class="header">All SHAYTGAMES Channels</div>
+
+    <!-- Menu icon (three lines) -->
+    <div class="menu-icon" onclick="toggleInfo()">☰</div>
+
+    <!-- Info section -->
+    <div class="info-section" id="info">
+        <div class="close-btn" onclick="toggleInfo()">✖</div>
+        <h1>Hey</h1>
+        <p>ciao capo</p>
+    </div>
+
+    <!-- Social buttons -->
+    <div class="social-container">
+        <a href="https://x.com/SHAYTGAMES" target="_blank" class="social-btn side-btn twitter-btn">Twitter(X)</a>
+        <a href="https://youtube.com/@SHAYTGAMES" target="_blank" class="social-btn youtube-btn">YouTube</a>
+        <a href="https://instagram.com/shaytgames" target="_blank" class="social-btn side-btn instagram-btn">Instagram</a>
+    </div>
+
+    <!-- Credits -->
+    <div class="credits">Credits</div>
+
+    <script>
+        function toggleInfo() {
+            const infoSection = document.getElementById('info');
+            infoSection.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

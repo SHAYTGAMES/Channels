@@ -20,28 +20,38 @@
             position: relative;
             overflow: hidden;
         }   
-        /* Header with "All SHAYTGAMES Channels" */
-        .header {
+
+        /* Header container for menu icon and title */
+        .header-container {
             position: absolute;
             top: 20px;
             width: 100%;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #00f; /* Blue text as in the image */
+            display: flex;
+            justify-content: space-between; /* Space between menu and header */
+            align-items: center;
+            padding: 0 20px; /* Padding for left and right edges */
+            box-sizing: border-box;
             z-index: 2;
         }
 
         /* Menu icon (three lines) */
         .menu-icon {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             font-size: 30px;
             cursor: pointer;
             color: #800080; /* Purple color */
             text-shadow: 2px 2px 4px #000000; /* Black shadow */
             z-index: 3;
+        }
+
+        /* Header with "All SHAYTGAMES Channels" */
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff; /* White text */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            text-shadow: 0 0 10px #800080, 0 0 20px #800080; /* Permanent purple glow */
         }
 
         /* Dropdown menu */
@@ -278,19 +288,22 @@
                 height: 150px;
             }
 
-            /* Ensure header and menu icon are visible on mobile */
+            /* Ensure header and menu icon are visible and adjusted on mobile */
             body {
                 overflow-y: auto; /* Allow scrolling on mobile */
             }
 
+            .header-container {
+                top: 10px; /* Move closer to top */
+                padding: 0 10px; /* Adjust padding for mobile */
+            }
+
             .header {
                 font-size: 18px; /* Reduce font size for better fit */
-                top: 10px; /* Move closer to top */
             }
 
             .menu-icon {
-                top: 10px; /* Align with header */
-                left: 10px; /* Slightly closer to edge */
+                font-size: 24px; /* Slightly smaller for mobile */
             }
 
             .dropdown-menu {
@@ -304,11 +317,11 @@
 <body>
     <div class="overlay"></div>
 
-    <!-- Header -->
-    <div class="header">All SHAYTGAMES Channels</div>
-
-    <!-- Menu icon (three lines) -->
-    <div class="menu-icon" onclick="toggleDropdown()">☰</div>
+    <!-- Header container with menu icon and title -->
+    <div class="header-container">
+        <div class="menu-icon" onclick="toggleDropdown()">☰</div>
+        <div class="header">All SHAYTGAMES Channels</div>
+    </div>
 
     <!-- Dropdown menu -->
     <div class="dropdown-menu" id="dropdown">

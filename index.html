@@ -19,7 +19,8 @@
             color: white;
             position: relative;
             overflow: hidden;
-        }   /* Header with "All SHAYTGAMES Channels" */
+        }   
+        /* Header with "All SHAYTGAMES Channels" */
         .header {
             position: absolute;
             top: 20px;
@@ -41,6 +42,41 @@
             color: #800080; /* Purple color */
             text-shadow: 2px 2px 4px #000000; /* Black shadow */
             z-index: 3;
+        }
+
+        /* Dropdown menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+            flex-direction: column;
+            width: 200px;
+            z-index: 4;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        .dropdown-menu.active {
+            display: flex;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            color: white;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            border-bottom: 2px solid #800080; /* Purple border between items */
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none; /* Remove border from the last item */
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
         }
 
         /* Social buttons container */
@@ -148,7 +184,36 @@
             text-decoration: underline; /* Underline on hover */
         }
 
-        /* Close button for Info section */
+        /* News section (black screen with text) */
+        .news-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 4;
+        }
+
+        .news-section.active {
+            display: flex;
+        }
+
+        .news-section h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .news-section p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        /* Close button for sections */
         .close-btn {
             position: absolute;
             top: 20px;
@@ -222,7 +287,13 @@
     <div class="header">All SHAYTGAMES Channels</div>
 
     <!-- Menu icon (three lines) -->
-    <div class="menu-icon" onclick="toggleInfo()">☰</div>
+    <div class="menu-icon" onclick="toggleDropdown()">☰</div>
+
+    <!-- Dropdown menu -->
+    <div class="dropdown-menu" id="dropdown">
+        <div class="dropdown-item" onclick="toggleInfo()">Info</div>
+        <div class="dropdown-item" onclick="toggleNews()">News di SHAYTGAMES</div>
+    </div>
 
     <!-- Info section -->
     <div class="info-section" id="info">
@@ -236,6 +307,13 @@
         Thank you for viewing the site and follow me to not miss any other content.</p>
     </div>
 
+    <!-- News section -->
+    <div class="news-section" id="news">
+        <div class="close-btn" onclick="toggleNews()">✖</div>
+        <h1>News..</h1>
+        <p>Benvenuti</p>
+    </div>
+
     <!-- Social buttons -->
     <div class="social-container">
         <a href="https://x.com/SHAYTGAMES" target="_blank" class="social-btn side-btn twitter-btn">Twitter(X)</a>
@@ -247,9 +325,23 @@
     <div class="credits">Credits @SHAYTGAMES - 2025</div>
 
     <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            dropdown.classList.toggle('active');
+        }
+
         function toggleInfo() {
             const infoSection = document.getElementById('info');
+            const dropdown = document.getElementById('dropdown');
             infoSection.classList.toggle('active');
+            dropdown.classList.remove('active'); /* Close dropdown when info opens */
+        }
+
+        function toggleNews() {
+            const newsSection = document.getElementById('news');
+            const dropdown = document.getElementById('dropdown');
+            newsSection.classList.toggle('active');
+            dropdown.classList.remove('active'); /* Close dropdown when news opens */
         }
     </script>
 </body>

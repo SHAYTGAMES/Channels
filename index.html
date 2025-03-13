@@ -169,6 +169,31 @@
             bottom: 20px;
             font-size: 14px;
             z-index: 2;
+            color: #000; /* Black text */
+            padding: 5px 10px; /* Padding to fit the border closely */
+            background: transparent; /* No background to let the border stand out */
+            border: 2px solid; /* Border thickness */
+            border-radius: 5px; /* Slight rounding for aesthetics */
+            border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1; /* Gradient border */
+            animation: borderRotate 3s linear infinite; /* Looping animation */
+        }
+
+        @keyframes borderRotate {
+            0% {
+                border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1;
+            }
+            25% {
+                border-image: linear-gradient(135deg, purple, blue, green, yellow, orange, red) 1;
+            }
+            50% {
+                border-image: linear-gradient(225deg, red, orange, yellow, green, blue, purple) 1;
+            }
+            75% {
+                border-image: linear-gradient(315deg, purple, blue, green, yellow, orange, red) 1;
+            }
+            100% {
+                border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1;
+            }
         }
 
         /* Media query for mobile devices */
@@ -223,7 +248,7 @@
     </div>
 
     <!-- Credits -->
-    <div class="credits">Credits @SHAYTGAMES - 2025 </div>
+    <div class="credits">Credits @SHAYTGAMES - 2025</div>
 
     <script>
         function toggleInfo() {

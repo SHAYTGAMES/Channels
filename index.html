@@ -277,6 +277,27 @@
                 width: 150px; /* Same size as YouTube button */
                 height: 150px;
             }
+
+            /* Ensure header and menu icon are visible on mobile */
+            body {
+                overflow-y: auto; /* Allow scrolling on mobile */
+            }
+
+            .header {
+                font-size: 18px; /* Reduce font size for better fit */
+                top: 10px; /* Move closer to top */
+            }
+
+            .menu-icon {
+                top: 10px; /* Align with header */
+                left: 10px; /* Slightly closer to edge */
+            }
+
+            .dropdown-menu {
+                top: 50px; /* Adjust dropdown position */
+                left: 10px;
+                width: 180px; /* Slightly smaller for mobile */
+            }
         }
     </style>
 </head>

@@ -52,6 +52,7 @@
             left: 50%;
             transform: translateX(-50%); /* Center horizontally */
             text-shadow: 0 0 10px #800080, 0 0 20px #800080; /* Permanent purple glow */
+            z-index: 3; /* Ensure it stays above social buttons */
         }
 
         /* Dropdown menu */
@@ -292,6 +293,7 @@
             .social-container {
                 flex-direction: column; /* Vertical layout */
                 gap: 20px; /* Space between buttons on mobile */
+                margin-top: 60px; /* Add space to avoid overlap with header */
             }
 
             .youtube-btn {

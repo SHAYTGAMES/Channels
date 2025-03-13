@@ -63,6 +63,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+            gap: 50px; /* Space between buttons on PC */
             z-index: 2;
         }
 
@@ -170,24 +171,24 @@
             z-index: 2;
         }
 
-        /* Media query per dispositivi mobili */
+        /* Media query for mobile devices */
         @media only screen and (max-width: 768px) {
             .social-container {
-                flex-direction: column; /* Disposizione verticale */
-                gap: 20px; /* Spazio tra i bottoni */
+                flex-direction: column; /* Vertical layout */
+                gap: 20px; /* Space between buttons on mobile */
             }
 
             .youtube-btn {
-                margin: 0; /* Rimuove i margini laterali su mobile */
+                margin: 0; /* Remove any margins on mobile */
             }
 
             .social-btn {
-                width: 150px; /* Dimensioni uniformi per tutti i bottoni su mobile */
+                width: 150px; /* Uniform size for all buttons on mobile */
                 height: 150px;
             }
 
             .side-btn {
-                width: 150px; /* Stessa dimensione del bottone YouTube */
+                width: 150px; /* Same size as YouTube button */
                 height: 150px;
             }
         }
@@ -205,8 +206,8 @@
     <!-- Info section -->
     <div class="info-section" id="info">
         <div class="close-btn" onclick="toggleInfo()">✖</div>
-        <h1>Hey</h1>
-        <p>ciao capo</p>
+        <h1>Hello</h1>
+        <p>Hi boss</p>
     </div>
 
     <!-- Social buttons -->

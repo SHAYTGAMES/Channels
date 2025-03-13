@@ -234,6 +234,26 @@
             z-index: 5;
         }
 
+        /* Video container for PC */
+        .video-container-pc {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            height: 180px;
+            z-index: 3;
+        }
+
+        /* Video container for mobile */
+        .video-container-mobile {
+            display: none; /* Hidden by default, shown on mobile */
+            width: 100%;
+            max-width: 320px;
+            height: 180px;
+            margin: 20px 0; /* Space above and below */
+            z-index: 3;
+        }
+
         /* Credits */
         .credits {
             position: absolute;
@@ -311,6 +331,32 @@
                 left: 10px;
                 width: 180px; /* Slightly smaller for mobile */
             }
+
+            /* Show mobile video and hide PC video */
+            .video-container-pc {
+                display: none; /* Hide on mobile */
+            }
+
+            .video-container-mobile {
+                display: block; /* Show on mobile */
+            }
+
+            /* Adjust credits position on mobile */
+            .credits {
+                position: relative; /* Change to relative for flow with video */
+                bottom: auto; /* Remove absolute bottom positioning */
+            }
+        }
+
+        /* Media query for PC (larger than 768px) */
+        @media only screen and (min-width: 769px) {
+            .video-container-pc {
+                display: block; /* Show on PC */
+            }
+
+            .video-container-mobile {
+                display: none; /* Hide on PC */
+            }
         }
     </style>
 </head>
@@ -355,8 +401,18 @@
         <a href="https://instagram.com/shaytgames" target="_blank" class="social-btn side-btn instagram-btn">Instagram</a>
     </div>
 
+    <!-- Video for mobile (between Instagram and Credits) -->
+    <div class="video-container-mobile">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dBPnxJXa990?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+
     <!-- Credits -->
     <div class="credits">Credits @SHAYTGAMES - 2025</div>
+
+    <!-- Video for PC (bottom right) -->
+    <div class="video-container-pc">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dBPnxJXa990?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+    </div>
 
     <script>
         function toggleDropdown() {
